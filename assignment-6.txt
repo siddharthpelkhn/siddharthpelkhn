@@ -1,0 +1,161 @@
+1.
+#include<stdio.h>
+int main()
+{
+    int n,i,sum=0;
+    printf("How many first natural numbers you sum?\n");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+      sum=sum+i;
+    }
+    printf("sum of first %d natural number is %d",i-1,sum);
+    return 0;
+}
+2.
+#include<stdio.h>
+int main()
+{
+    int n,i,sum=0,count=0;
+    printf("How many first even natural numbers you want to sum?\n");
+    scanf("%d",&n);
+    for(i=1;count<n;i++)
+    {
+        if(i%2==0)
+        {
+         sum=sum+i;
+         count++;
+        }
+    }
+    printf("sum first %d even natural number is %d",count,sum);
+    return 0;
+}
+3.
+#include<stdio.h>
+int main()
+{
+    int n,i,sum=0,count=0;
+    printf("How many first odd natural numbers you want to sum?\n");
+    scanf("%d",&n);
+    for(i=1;count<n;i++)
+    {
+        if(i%2!=0)
+        {
+          sum=sum+i;
+          count++;
+        }
+    }
+    printf("sum first %d odd natural number is %d",count,sum);
+    return 0;
+}
+4.
+#include<stdio.h>
+int main()
+{
+    int n,i,product=0;
+    printf("How many first natural number you want to square and then sum?\n");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+          product=product+i*i;
+    }
+    printf("sum of square of first %d natural number is %d",i-1,product);
+    return 0;
+}
+5.
+#include<stdio.h>
+int main()
+{
+    int n,i,product=0;
+    printf("How many first natural number you want to square and then sum?\n");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+          product=product+i*i;
+    }
+    printf("sum of square of first %d natural number is %d",i-1,product);
+    return 0;
+}
+6.
+#include<stdio.h>
+int main()
+{
+    int n,i,product=1;
+    printf("Enter number whose factorial you want to calculate: ");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        product=product*i;
+    }
+    printf("factorial of %d is %d",i-1,product);
+    return 0;
+}
+7.
+#include<stdio.h>
+int main()
+{
+    int n,i,product=1;
+    printf("Enter number whose factorial you want to calculate: ");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        product=product*i;
+    }
+    printf("factorial of %d is %d",i-1,product);
+    return 0;
+}
+8.
+#include<stdio.h>
+int main()
+{
+   int n,i,flag;
+   printf("Enter a number: ");
+   scanf("%d",&n);
+   for(i=2;i<n;i++)
+   {
+       if(n%i==0)
+       {
+           printf("not prime!");
+           flag=1;
+           break;
+       }
+       flag=0;
+   }
+   if(flag==0)
+   {
+     printf("prime!");
+   }
+   return 0;
+}
+9.
+#include<stdio.h>
+int main()
+{
+    int a,b,i;
+    printf("Enter two numbers: ");
+    scanf("%d %d",&a,&b);
+    for(i=a>b?a:b;i<=a*b;i++)
+    {
+        if((i%a==0)&&(i%b==0))
+            break;
+    }
+    printf("lcm of %d and %d is %d",a,b,i);
+    return 0;
+}
+10.
+#include<stdio.h>
+int main()
+{
+    int n,q,rev=0;
+    printf("enter a number: ");
+    scanf("%d",&n);
+    while(n>0)
+    {
+        q=n%10;
+        rev=rev*10+q;
+        n=n/10;
+    }
+    printf("reverse of entered number is %d",rev);
+    return 0;
+}
+
