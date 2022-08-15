@@ -1,0 +1,203 @@
+1.
+#include<stdio.h>
+#define PI 3.14
+float area(float);
+int main()
+{
+    float r;
+    printf("Enter radius of circle: ");
+    scanf("%f",&r);
+    printf("area of circle is %f",area(r));
+    return 0;
+}
+float area(float x)
+{
+    return PI*x*x;
+}
+2.
+#include<stdio.h>
+float intrest(int,float,int);
+int main()
+{
+    int p,t;
+    float r;
+    printf("Enter value of p,r,t: ");
+    scanf("%d %f %d",&p,&r,&t);
+    printf("simple intrest is %f",intrest(p,r,t));
+    return 0;
+}
+float intrest(int x,float y,int z)
+{
+    float si;
+    si=(x*y*z)/100;
+    return si;
+}
+3.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    printf("%d",even_odd(n));
+    return 0;
+}
+int even_odd(int x)
+{
+    if(x%2==0)
+        return 1;
+    else
+        return 0;
+}
+4.
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("Enter a natural number upto you want to print?\n");
+    scanf("%d",&n);
+    print(n);
+    return 0;
+}
+void print(int x)
+{
+    if(x>0)
+    {
+        print(x-1);
+        printf("%d ",x);
+    }
+}
+5.
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("Enter a natural number upto you want to print odd numbers?\n");
+    scanf("%d",&n);
+    if(n%2==0)
+        n=n-1;
+    print(n);
+    return 0;
+}
+void print(int x)
+{
+    if(x>0)
+    {
+        print(x-2);
+        printf("%d ",x);
+    }
+}
+6.
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("Enter a number you want to get factorial of: ");
+    scanf("%d",&n);
+    printf("factorial of %d is %d",n,fact(n));
+    return 0;
+}
+int fact(int x)
+{
+    if(x==0||x==1)
+        return 1;
+    else
+        return x*fact(x-1);
+}
+7.
+#include<stdio.h>
+int main()
+{
+    int n,r;
+    printf("Enter number of item present: ");
+    scanf("%d",&n);
+    printf("enter elements you want to select: ");
+    scanf("%d",&r);
+    printf("number of combination one can make from %d items and %d selected at a time is %d",n,r,combi(n,r));
+    return 0;
+}
+int combi(int n,int r)
+{
+    return fact(n)/(fact(r)*fact(n-r));
+}
+int fact(int x)
+{
+    if(x==0||x==1)
+        return 1;
+    else
+        return x*fact(x-1);
+}
+8.
+#include<stdio.h>
+int main()
+{
+    int n,r;
+    printf("Enter number of item present: ");
+    scanf("%d",&n);
+    printf("enter elements you want to select: ");
+    scanf("%d",&r);
+    printf("number of arrangements one can make from %d items and %d selected at a time is %d",n,r,arrang(n,r));
+    return 0;
+}
+int arrang(int n,int r)
+{
+    return fact(n)/fact(n-r);
+}
+int fact(int x)
+{
+    if(x==0||x==1)
+        return 1;
+    else
+        return x*fact(x-1);
+}
+9.
+#include<stdio.h>
+int main()
+{
+    int n,x;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    printf("Enter digit you want to search in a entered number: ");
+    scanf("%d",&x);
+    printf("return vlaue is %d\n",search(n,x));
+    if(search(n,x)==1)
+        printf("digit found!");
+    else
+        printf("digit not found!");
+    return 0;
+}
+int search(int n,int x)
+{
+    int q;
+    while(n!=0)
+    {
+        q=n%10;
+        if(x==q)
+            return 1;
+        n=n/10;
+    }
+    return 0;
+}
+10.
+#include<stdio.h>
+int main()
+{
+   int n;
+   printf("Enter a number whose prime factor you want to know: ");
+   scanf("%d",&n);
+   pri_fact(n);
+   return 0;
+}
+void pri_fact(int n)
+{
+    int i;
+    for(i=2;n>1;i++)
+    {
+        while(n%i==0)
+        {
+            printf("%d ",i);
+            n=n/i;
+        }
+    }
+}
