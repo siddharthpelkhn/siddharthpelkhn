@@ -1,0 +1,121 @@
+1.
+#include<iostream>
+int main()
+{
+    std::cout<<"Hello MysirG";
+    return 0;
+}
+2.
+#include<iostream>
+int main()
+{
+    std::cout<<"Hello"<<std::endl;
+    std::cout<<"MysirG"<<std::endl;
+    return 0;
+}
+3.
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a,b,sum;
+    cout<<"Enter first number"<<endl;
+    cin>>a;
+    cout<<"Enter second number"<<endl;
+    cin>>b;
+    sum = a + b;
+    cout<<"sum of "<<a<<" and "<<b<<" is "<<sum<<endl;
+    return 0;
+}
+4.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    float r,area;
+    cout<<"Enter radius:"<<endl;
+    cin>>r;
+    area = 3.14*r*r;
+    cout<<"Area of circle having radius "<<r<<" is "<<area<<endl;
+    return 0;
+}
+5.
+#include<iostream>
+using namespace std;
+int main()
+{
+    float l,b,h,v;
+    cout<<"Enter length,breadth and height:"<<endl;
+    cin>>l>>b>>h;
+    v=l*b*h;
+    cout<<"volume of cuboid is "<<v<<endl;
+    return 0;
+}
+6.
+#include<iostream>
+using namespace std;
+
+int main(){
+    float a,b,c,avg;
+    cout<<"Enter three number:"<<endl;
+    cin>>a>>b>>c;
+    avg = (a+b+c)/3;
+    cout<<"Average is "<<avg<<endl;
+    return 0;
+}
+7.
+#include<iostream>
+using namespace std;
+
+int main(){
+    float a,sq;
+    cout<<"Enter a number:"<<endl;
+    cin>>a;
+    sq = a*a;
+    cout<<"square of "<<a<<" is "<<sq<<endl;
+    return 0;
+}
+8.
+#include<iostream>
+using namespace std;
+
+int main(){
+    int a,b;
+    cout<<"Enter two numbers:"<<endl;
+    cin>>a>>b;
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    cout<<"a = "<<a<<" and b = "<<b<<endl;
+    return 0;
+}
+9.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a,b,c;
+    cout<<"Enter two numbers:"<<endl;
+    cin>>a>>b;
+    c = a>b?a:b;
+    cout<<"Maximum is "<<c;
+    return 0;
+}
+10.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a[10],sum=0,i;
+    for ( i = 0; i < 10; i++)
+    {
+        cout<<"Enter "<<i+1<<" element: ";
+        cin>>a[i];
+        sum = sum + a[i];
+    }
+    cout<<"sum is "<<sum<<endl;
+    return 0;
+}
