@@ -1,0 +1,178 @@
+1.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int x,a;
+    printf("Enter a number: ");
+    scanf("%d",&x);
+    a = x%10;
+    printf("unit digit of number %d is %d",x,a);
+    return 0;
+}
+2.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+   int x,a;
+   printf("Enter number: ");
+   scanf("%d",&x);
+   a = x/10;
+   printf("number %d without its last digit is %d",x,a);
+   return 0;
+}
+3.
+#include<stdio.h>
+int main()
+{
+  int a,b,x;
+  printf("Enter a and b: ");
+  scanf("%d %d",&a,&b);
+  printf("a is %d and b is %d\n",a,b);
+  x = a;
+  a = b;
+  b = x;
+  printf("a is %d and b is %d",a,b);
+  return 0;
+}
+4.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+   int a,b;
+   printf("Enter two numbers: ");
+   scanf("%d %d",&a,&b);
+   printf("a is %d and b is %d\n",a,b);
+   a = a + b;
+   b = a - b;
+   a = a - b;
+   printf("a is %d and b is %d",a,b);
+   return 0;
+}
+5.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+   int x,sum=0;
+   printf("Enter a number: ");
+   scanf("%d",&x);
+   while(x!=0)
+   {
+     sum = x%10 + sum;
+     x = x/10;
+   }
+   printf("sum of digits of a number is %d",sum);
+   return 0;
+}
+6.
+#include<stdio.h>
+int main()
+{
+  char ch;
+  printf("Enter a character whose ASCII code you want to know: ");
+  scanf("%c",&ch);
+  printf("ASCII code of %c is %d",ch,ch);
+  return 0;
+}
+7.
+#include<stdio.h>
+int main()
+{
+    int n,count=0,x;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    while (n!=0)
+    {
+        x = n & 1;
+        count++;
+        if(x==1)
+        {
+            printf("position of LSB is %d",count);
+            break;
+        }
+        n = n>>1;
+    }
+    return 0;
+}
+8.
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    if(n&1)
+    printf("odd");
+    else
+    printf("even");
+    return 0;
+}
+9.
+#include<stdio.h>
+int main()
+{
+    int a;
+    char b;
+    float c;
+    double d;
+    printf("size of int is %d\n",sizeof(a));
+    printf("size of char is %d\n",sizeof(b));
+    printf("size of float is %d\n",sizeof(c));
+    printf("size of double is %d\n",sizeof(d));
+    return 0;
+}
+10.
+#include<stdio.h>
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    n=n/10;
+    n=n*10;
+    printf("n is %d",n);
+    return 0;
+}
+11.
+#include<stdio.h>
+int main()
+{
+    int n,x;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    printf("Enter a digit which you want to append: ");
+    scanf("%d",&x);
+    n = n*10 + x;
+    printf("number after append becomes:\n");
+    printf("%d",n);
+    return 0;
+}
+12.
+#include<stdio.h>
+int main()
+{
+    int n;
+    float a;
+    printf("Enter amount in rupees: ");
+    scanf("%d",&n);
+    a = n/76.73;
+    printf("%d rupees = %f USD",n,a);
+    return 0;
+}
+13.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n,a;
+    printf("Enter a three digit number: ");
+    scanf("%d",&n);
+    a = n%10;
+    n = n/10;
+    n = a*100 + n;
+    printf("Digits after one rotation towards right:%d",n);
+    return 0;
+}
