@@ -1,0 +1,302 @@
+1.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,j;
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};
+    int b[3][3] = {{1,5,3},
+                   {6,1,1},
+                   {8,1,7}};    
+    int c[3][3];
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            c[i][j] = a[i][j] + b[i][j];
+        }
+        
+    }
+    printf("matrix after addition:\n);
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            printf("%d ",c[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;                          
+}
+2.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,j;
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};
+    int b[3][3] = {{1,5,3},
+                   {6,1,1},
+                   {8,1,7}};    
+    int c[3][3];
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            c[i][j] = a[i][j]*b[i][j] + a[i][j+1]*b[i+1][j] + a[i][j+2]*b[i+2][j];
+        }
+        
+    }
+    printf("matrix after multiplication:\n");
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            printf("%d ",c[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;                          
+}
+3.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,j;
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};    
+    int c[3][3];
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            c[i][j] = a[j][i];
+        }
+        
+    }
+    printf("matrix after transpose:\n");
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            printf("%d ",c[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;                          
+}
+4.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,j,sum_Rt=0;
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};    
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            if(i==j)
+            {
+               sum_Rt = sum_Rt + a[i][j];
+               break;
+            }
+        }
+    }
+    printf("sum of elements of right diagnol is %d",sum_Rt);
+    return 0;                          
+}
+5.
+#include<stdio.h>
+int main()
+{
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};
+    int i,j,sum_l=0;
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            if(i+j==2)
+            sum_l+=a[i][j];
+        }
+    }
+    printf("sum of left diagonal=%d",sum_l);
+    return 0;
+}
+6.
+#include<stdio.h>
+int main()
+{
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};
+    int i,j,sum_r,sum_c;               
+    for ( i = 0; i < 3; i++)
+    {
+        sum_c=0;
+        sum_r=0;
+        for ( j = 0; j < 3; j++)
+        {
+            sum_r=sum_r+a[i][j];
+            sum_c=sum_c+a[j][i];
+        }
+        printf("sum of %d row = %d\n",i+1,sum_r);
+        printf("sum of %d column = %d\n",i+1,sum_c);
+    }
+    return 0;               
+}
+7.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,j,c[3][3];
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};    
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            if(i==j+1||i==j+2)
+            {
+               c[i][j] = a[i][j];
+            }
+            else
+            {
+                c[i][j] = 0;
+            }  
+        }
+    }
+    printf("lower triangular matrix:\n");
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            printf("%d ",c[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;                          
+}
+8.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,j,c[3][3];
+    int a[3][3] = {{2,7,3},
+                   {4,0,1},
+                   {3,2,9}};    
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            if(i+1==j||i+2==j)
+            {
+               c[i][j] = a[i][j];
+            }
+            else
+            {
+                c[i][j] = 0;
+            }  
+        }
+    }
+    printf("upper triangular matrix:\n");
+    for ( i = 0; i < 3; i++)
+    {
+        for ( j = 0; j < 3; j++)
+        {
+            printf("%d ",c[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;                          
+}
+9.
+#include<stdio.h>
+int main()
+{
+    int m,n;
+    printf("Enter value of m and n:");
+    scanf("%d %d",&m,&n);
+    int matrix[m][n];
+    int count=0;
+    printf("Enter element of matrix\n");
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            printf("Enter element %d%d:",i+1,j+1);
+            scanf("%d",&matrix[i][j]);
+        }
+    }
+    printf("------matrix------\n");
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            printf("%d ",matrix[i][j]);
+            if(matrix[i][j]==0)
+            count++;
+        }
+        printf("\n");
+    }
+    printf("------matrix------\n");
+    if(count>(m*n)/2)
+    {
+        printf("It is a sparse matrix!");
+    }else{
+        printf("It's not a sparse matrix!");
+    }
+    return 0;  
+}
+10.
+#include<stdio.h>
+int max(int*,int);
+int main()
+{
+    int matrix[3][3] = {{1,2,5},
+                        {1,1,1},
+                        {9,3,6}};
+    int arr[3];
+    int count;                    
+    for(int i=0;i<3;i++)
+    {
+        count=0;
+       for(int j=0;j<3;j++)
+       {
+          if(matrix[i][j]==1)
+          count++;
+       }
+       arr[i]=count;
+    }
+    int result;
+    result=max(arr,3);
+    printf("%d row contains maximum no. of 1.",result);
+}
+int max(int arr[],int n)
+{
+    int temp=arr[0];
+    int index=1;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>temp){
+        temp=arr[i];
+        index=i+1;
+        }
+    }
+    return index;
+}
