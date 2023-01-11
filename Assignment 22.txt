@@ -1,0 +1,211 @@
+1.
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int input(char*);
+int main()
+{
+   char s[20];
+   int l,i;
+   l = input(s);
+   char *p;
+   p = (char*)calloc(l+1,sizeof(char));
+   for ( i = 0; i < l; i++)
+   {
+      *(p+i)=s[i];
+   }
+   for ( i = 0; *(p+i)!='\0'; i++)
+   {
+      printf("%c",*(p+i));
+   }
+   free(p);
+   return 0;
+}
+int input(char *s)
+{
+   printf("Enter string: ");
+   gets(s);
+   return strlen(s);
+}
+2.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n,i,sum=0;
+    float avg=0;
+    printf("How many values you want to enter in array?");
+    scanf("%d",&n);
+    int *p;
+    p = (int*)calloc(n,sizeof(int));
+    for ( i = 0; i < n; i++)
+    {
+        printf("Enter %d value: ",i+1);
+        scanf("%d",p+i);
+        sum = sum + *(p+i);
+    }
+    avg = (float)sum/n;
+    printf("average is %0.2f",avg);
+    free(p);
+    return 0;
+}
+3.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n,i,sum=0;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    int *p;
+    p = (int*)malloc(n*sizeof(int));
+    for ( i = 0; i < n; i++)
+    {
+        printf("Enter %d element: ",i+1);
+        scanf("%d",(p+i));
+        sum = sum + *(p+i);
+    }
+    printf("sum is %d",sum);
+    free(p);
+    return 0;
+}
+4.
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    char *text;
+    int l;
+    printf("Enter limit of text: ");
+    scanf("%d",&l);
+    text = (char*)malloc(l*sizeof(char));
+    printf("Enter text: ");
+    scanf(" "); // clear input buffer.
+    gets(text);
+    printf("Input text: %s",text);
+    free(text);
+    return 0;
+}
+5.
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int *arr = NULL;
+    int n,total=0;
+    printf("Enter size of array: ");
+    scanf("%d",&n);
+    arr = (int*)malloc(n*sizeof(int));
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("array is:\n");
+    for(int i=0;i<n;i++)
+    {
+        total+=arr[i];
+        printf("%d ",arr[i]);
+    }
+    printf("\nsum of elements of array is %d",total);
+    free(arr);
+    return 0;
+}
+6.
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int arr[] = {12,33,75,20,44,59,23};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int *p = NULL;
+    p = (int*)malloc(sizeof(int));
+    *p=0;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>*p)
+        *p=arr[i];
+    }
+    printf("largest element is %d",*p);
+    free(p);
+    return 0;
+}
+7.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int *x=NULL;
+    x=(int*)malloc(sizeof(int));
+    if(5<2)
+    *x=3;
+    else
+    printf("xyz");
+    // here at the end of program we not write free(x)
+    // due to this memory leak occurs.
+    return 0;
+}
+8.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int a = 200;
+    int *p;
+    p=(int*)malloc(sizeof(int));
+    p=&a;
+    free(p); // here p is a dangling pointer.
+    return 0;
+}
+9.
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    // specifically for int.
+    int n;
+    printf("How many bytes you want to allocate?\n");
+    scanf("%d",&n);
+    int *p=NULL;
+    if(n<4 || n%4!=0)
+    {
+       printf("Enter valid bytes!\n");
+    }
+    else{
+        int x;
+        x=n/4;
+        p=(int*)malloc(x*sizeof(int)); // desired bytes gets allocated.
+        printf("your desired bytes gets allocated!");
+    }
+    free(p);
+    return 0;
+}
+10.
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int arr[] = {12,33,75,20,44,59,23};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int *p = NULL;
+    int *q = NULL;
+    p = (int*)malloc(sizeof(int));
+    q = (int*)malloc(sizeof(int));
+    *q=*p=arr[0];
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i]>*p)
+        *p=arr[i];
+        if(arr[i]<*q)
+        *q=arr[i];
+    }
+    printf("largest element is %d\n",*p);
+    printf("smallest element is %d\n",*q);
+    free(p);
+    free(q);
+    return 0;
+}
