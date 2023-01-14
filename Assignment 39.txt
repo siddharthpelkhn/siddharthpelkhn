@@ -1,0 +1,204 @@
+1.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+
+using namespace std; 
+
+int main()
+{
+    forward_list<int> l1;
+    l1.assign({10,20,30,40,50});
+    forward_list<int>::iterator x;
+    cout<<"-----forward-list-----"<<endl;
+    for(x=l1.begin();x!=l1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+2.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+
+using namespace std; 
+
+int main()
+{
+    forward_list<int> l1{5,10,25,35,45};
+    forward_list<int>::iterator x;
+    cout<<"-----forward-list-----"<<endl;
+    for(x=l1.begin();x!=l1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+3.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    int i,sum=0;
+    forward_list<int> l1;
+    for(i=10;i>=1;i--)
+    {
+        l1.push_front(i);
+    }
+    forward_list<int>::iterator x;
+    for(x=l1.begin();x!=l1.end();x++)
+    {
+        sum+=*x;
+    }
+    cout<<"Sum = "<<sum<<endl;
+    return 0;
+}
+4.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    forward_list<int> l1;
+    for(int i=10;i>=1;i--)
+    {
+        l1.push_front(i);
+    }
+    l1.reverse();
+    forward_list<int>::iterator x;
+    cout<<"----List After Reverse----"<<endl;
+    for(x=l1.begin();x!=l1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+5.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    forward_list<int> l1{3,4,4,4,7,8,8,9,9,10};
+    l1.unique();
+    forward_list<int>::iterator x;
+    cout<<"----List After Removing consecutive duplicate elements----"<<endl;
+    for(x=l1.begin();x!=l1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+6.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    forward_list<int> l1{3,4,7,8,9,10};
+    forward_list<int> l2{12,5,17,19,23};
+    l1.merge(l2);
+    forward_list<int>::iterator x;
+    cout<<"----List After Mergeing----"<<endl;
+    for(x=l1.begin();x!=l1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+7.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    forward_list<int> forwardlist1{3,2,9};
+    forward_list<int> forwardlist2{8,1,2};
+    forwardlist1.sort();
+    forwardlist2.sort();
+    forwardlist1.merge(forwardlist2);
+    forward_list<int>::iterator x;
+    cout<<"----List After Sorting and Mergeing----"<<endl;
+    for(x=forwardlist1.begin();x!=forwardlist1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+8.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    forward_list<int>::iterator x;
+    forward_list<int> forwardlist1{3,2,9};
+    forward_list<int> forwardlist2{8,1,2};
+    cout<<"----List Before Swaping----"<<endl;
+    cout<<"List1: ";
+    for(x=forwardlist1.begin();x!=forwardlist1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    cout<<endl<<"List2: ";
+    for(x=forwardlist2.begin();x!=forwardlist2.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    cout<<endl<<"*************************"<<endl;
+    forwardlist1.swap(forwardlist2);
+    cout<<"----List After Swaping----"<<endl;
+    cout<<"List1: ";
+    for(x=forwardlist1.begin();x!=forwardlist1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    cout<<endl<<"List2: ";
+    for(x=forwardlist2.begin();x!=forwardlist2.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+9.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    forward_list<int>::iterator x;
+    forward_list<int> l1{3,2,9,5,10,7,1};
+    forward_list<int> l2{4,9};
+    l1.splice_after(l2.begin(),l1,l1.begin(),l1.end());
+    for(x=l2.begin();x!=l2.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+10.
+#include<iostream>
+#include<forward_list>
+#include<iterator>
+using namespace std;
+int main()
+{
+    forward_list<int> l1{3,9,12,18,21};
+    forward_list<int> l2;
+    l2.assign(l1.begin(),l1.end());
+    forward_list<int>::iterator x;
+    for(x=l2.begin();x!=l2.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
