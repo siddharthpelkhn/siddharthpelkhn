@@ -2,8 +2,10 @@
 #include<stdio.h>
 int main()
 {
-    int i=0;
-    while(i<5)
+    int i=0,n;
+    printf("Enter number of times you want to print");
+    scanf("%d",&n);
+    while(i<n)
     {
         printf("MysirG\n");
         i++;
@@ -14,8 +16,10 @@ int main()
 #include<stdio.h>
 int main()
 {
-    int i=1;
-    while(i<=10)
+    int i=1,n;
+    printf("Enter value of n");
+    scanf("%d",&n);
+    while(i<=n)
     {
         printf("%d\n",i);
         i++;
@@ -26,8 +30,10 @@ int main()
 #include<stdio.h>
 int main()
 {
-    int i;
-    for(i=10;i>0;i--)
+    int i,n;
+    printf("Enter value of n");
+    scanf("%d",&n);
+    for(i=n;i>0;i--)
     {
         printf("%d\n",i);
     }
@@ -37,8 +43,10 @@ int main()
 #include<stdio.h>
 int main()
 {
-    int i=1,count=1;
-    while(count<11)
+    int i=1,count=1,n;
+    printf("Enter number");
+    scanf("%d",&n);
+    while(count<=n)
     {
         printf("%d\n",i);
         i+=2;
@@ -88,8 +96,10 @@ int main()
 #include<stdio.h>
 int main()
 {
-    int i,count=1;
-    for(i=1;count<11;i++)
+    int i,count=1,n;
+    printf("Enter the value of n");
+    scanf("%d",&n);
+    for(i=1;count<=n;i++)
     {
         printf("%d\n",i*i);
         count++;
@@ -100,8 +110,10 @@ int main()
 #include<stdio.h>
 int main()
 {
-    int i,count=1;
-    for(i=1;count<11;i++)
+    int i,count=1,n;
+    printf("Enter the value of n");
+    scanf("%d",&n);
+    for(i=1;count<=n;i++)
     {
         printf("%d\n",i*i*i);
         count++;
@@ -112,8 +124,10 @@ int main()
 #include<stdio.h>
 int main()
 {
-    int i,count=1;
-    for(i=5;count<11;count++)
+    int i,count=1,n;
+    printf("Enter a number whose table you want");
+    scanf("%d",&n);
+    for(i=n;count<11;count++)
     {
         printf("%d * %d = %d\n",i,count,i*count);
     }
