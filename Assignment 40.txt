@@ -1,0 +1,337 @@
+1.
+#include<iostream>
+#include<deque>
+#include<iterator>
+using namespace std;
+int main()
+{
+    deque<int> d{1,2,3,4,5};
+    deque<int>::iterator x;
+    x=d.begin();
+    ++x;
+    d.insert(x,10);
+    cout<<"Deque elements"<<endl;
+    for(x=d.begin();x!=d.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;
+}
+2.
+#include<iostream>
+#include<deque>
+using namespace std;
+int main()
+{
+    deque<int> d = {10,20,30,40,50};
+    cout<<"Reverse deque elements"<<endl;
+    for(auto x=d.rbegin();x!=d.rend();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;    
+}
+3.
+#include<iostream>
+#include<deque>
+using namespace std;
+int main()
+{
+    deque<int> d = {1,12,34,24,55};
+    cout<<"Reverse deque elements"<<endl;
+    for(auto x=d.rbegin();x!=d.rend();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;    
+}
+4.
+#include<iostream>
+#include<deque>
+using namespace std;
+int main()
+{
+    deque<int> d = {1,12,34,24,55};
+    cout<<"Deque elements"<<endl;
+    for(auto x=d.cbegin();x!=d.cend();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;    
+}
+5.
+#include<iostream>
+#include<deque>
+using namespace std;
+int main()
+{
+    deque<int> d;
+    cout<<"maximum Deque elements:";
+    cout<<d.max_size()<<endl;
+    return 0;    
+}
+6.
+#include<iostream>
+#include<deque>
+using namespace std;
+int main()
+{
+    deque<int> d1{3,4,5,6};
+    deque<int> d2;
+    d1.assign(5,5);
+    d2.assign({10,11,12,13,14,15});
+    cout<<"Deque 1"<<endl;
+    for(auto x=d1.begin();x!=d1.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    cout<<endl<<"Deque 2"<<endl;;
+    for(auto x=d2.begin();x!=d2.end();x++)
+    {
+        cout<<*x<<" ";
+    }
+    return 0;    
+}
+7.
+#include<iostream>
+#include<deque>
+using namespace std;
+int main()
+{
+    deque<int> d1{3,4,5,6};
+    cout<<"Front:"<<d1.front()<<endl;
+    cout<<"Back:"<<d1.back()<<endl;
+    return 0;    
+}
+8.
+#include<iostream>
+#include<deque>
+#include<iterator>
+using namespace std;
+int main()
+{
+    deque<int> d1{3,4,5,6};
+    cout<<"Original Deque"<<endl;
+    for(auto x=d1.cbegin();x!=d1.cend();x++)
+    {
+        cout<<*x<<" ";
+    }
+    auto it = d1.begin();
+    ++it;
+    d1.erase(it); // specific position.
+    cout<<endl;
+    cout<<"Deque after removing element from second position";
+    deque<int>::iterator y;
+    cout<<endl;
+    for(y=d1.begin();y!=d1.end();y++)
+    {
+        cout<<*y<<" ";
+    }
+    d1.erase(++it,d1.end()); // specific range
+    cout<<endl;
+    cout<<"remove from specific range"<<endl;
+    for(auto z=d1.begin();z!=d1.end();z++)
+    {
+        cout<<*z<<" ";
+    }
+    return 0;    
+}
+9.
+#include<iostream>
+#include<deque>
+#include<iterator>
+#include<vector>
+using namespace std;
+void make_permutation(int n,int k)
+{
+    deque<int> d;
+    for(int i=0;i<n;i++)
+    {
+       d.push_back(i+1);
+    }
+    vector<int> v;
+    int flag=0;
+    for(int i=0;i<n;i++)
+    {
+        if(flag==0)
+        {
+            v.push_back(d.front());
+            d.pop_front();
+            if(k>1)
+            {
+               flag=1;
+            }
+            k--;
+        }else{
+            if(flag==1)
+            {
+                v.push_back(d.back());
+                d.pop_back();
+                if(k>1)
+                {
+                    flag=0;
+                }
+                k--;
+            }
+        }
+    }
+    for(auto x : v)
+    {
+        cout<<x<<" ";
+    }
+}
+int main()
+{
+    int n=6,k=3;
+    make_permutation(n,k);
+    return 0;
+}
+10.
+#include<iostream>
+#include<deque>
+#include<iterator>
+using namespace std;
+
+bool similar(string s1,string s2)
+{
+    int m = s1.size();
+    int n = s2.size();
+
+    if(m==n)
+    {
+        return true;
+    }
+
+    deque<string> x,y;
+    string temp = "";
+    x.push_back(" ");
+    y.push_back(" ");
+    for(int i=0;i<s1.size()+1;i++)
+    {
+       if(s1[i]!=' ')
+       {
+          temp = temp + s1[i];
+       }else{
+        x.push_back(temp);
+        temp="";
+       }
+    }
+    x.push_back(temp);
+    temp="";
+    for(int i=0;i<s2.size()+1;i++)
+    {
+       if(s2[i]!=' ')
+       {
+          temp = temp + s2[i];
+       }else{
+        y.push_back(temp);
+        temp="";
+       }
+    }
+    y.push_back(temp);
+    while(x.size() >0 && y.size() && x.front() == y.front())
+    {
+        x.pop_front();
+        y.pop_front();
+    }
+
+    while(x.size() > 0 && y.size() > 0 && x.back() == y.back())
+    {
+        x.pop_back();
+        y.pop_back();
+    }
+
+    if(x.size()==0 || y.size()==0)
+    {
+        return true;
+    }
+    
+    return false;
+}
+
+int main()
+{
+    string s1 = "start practicing on ineuron";
+    string s2 = "start ineuron";
+
+    if(similar(s1,s2))
+    {
+        cout<<"True"<<endl;
+    }else{
+        cout<<"False"<<endl;
+    }
+    return 0;
+}
+11.
+#include<iostream>
+#include<deque>
+using namespace std;
+int main()
+{
+    deque<int> d1{3,4,5,6};
+    cout<<"Front:"<<d1.front()<<endl;
+    cout<<"Back:"<<d1.back()<<endl;
+    return 0;    
+}
+12.
+#include<bits/stdc++.h>
+using namespace std;
+
+string test(string s)
+{
+    string temp = "";
+    deque<char> ch;
+    for(int i=0;i<s.size();i++)
+    {
+        if(s[i]!='#')
+        {
+            ch.push_back(s[i]);
+        }else{
+            ch.pop_back();
+        }
+    }
+    while(!ch.empty())
+    {
+        temp = temp + ch.front();
+        ch.pop_front();
+    }
+    return temp;
+}
+
+int main()
+{
+    string s = "abc#de#f#ghi#jklmn#op#";
+    cout<<test(s)<<endl;
+    return 0;
+}
+13.
+#include<iostream>
+#include<deque>
+#include<forward_list>
+using namespace std;
+deque<int> oddEven(forward_list<int> l)
+{
+    deque<int> d;
+    forward_list<int>::iterator x;
+    for(x=l.begin();x!=l.end();x++)
+    {
+        if(*x%2==0)
+        {
+          d.push_front(*x);
+        }else{
+         d.push_back(*x);
+        }
+    }
+    return d;
+}
+int main()
+{
+    forward_list<int> l1{2,1,8,5,3,4};
+    deque<int> d1 = oddEven(l1);
+    for(auto x : d1)
+    {
+        cout<<x<<" ";
+    }
+    return 0;
+}
+
