@@ -1,0 +1,325 @@
+1.
+#include<iostream>
+using namespace std;
+class complex
+{
+   private:
+       int a,b;
+   public:
+    void setdata(int x,int y)
+    {
+        a=x;
+        b=y;
+    }
+    void showdata(complex z)
+    {
+        cout<<a<<" + "<<b<<"i"<<endl;
+        cout<<z.a<<" + "<<z.b<<"i"<<endl;
+    }
+};
+int main()
+{
+    complex c1,c2;
+    c1.setdata(2,3);
+    c2.setdata(4,5);
+    c1.showdata(c2);
+    return 0;
+}
+2.
+#include<iostream>
+using namespace std;
+class time
+{
+   private:
+       int h,m,s;
+   public:
+    void set_time(int x,int y,int z)
+    {
+        h=x;
+        m=y;
+        s=z;
+    }
+    void show_time(time a)
+    {
+        cout<<h<<"hr "<<m<<"min "<<s<<"sec "<<endl;
+        cout<<a.h<<"hr "<<a.m<<"min "<<a.s<<"sec "<<endl;
+    }
+};
+int main()
+{
+    time t1,t2;
+    t1.set_time(3,45,20);
+    t2.set_time(4,50,35);
+    t1.show_time(t2);
+    return 0;
+}
+3.
+#include<iostream>
+using namespace std;
+class factorial
+{
+   private:
+       int a;
+   public:
+    int fact(int x)
+    {
+        if(x==1)
+            return 1;
+        return x*fact(x-1);
+    }
+    void set(int n)
+    {
+        a=fact(n);
+    }
+    void show()
+    {
+        cout<<a<<endl;
+    }
+};
+int main()
+{
+    factorial f;
+    f.set(5);
+    f.show();
+    return 0;
+}
+4.
+#include<iostream>
+using namespace std;
+class LargestNumber
+{
+   private:
+       int a,b,c;
+   public:
+    void setdata(int x,int y,int z)
+    {
+        a=x;
+        b=y;
+        c=z;
+    }
+    int max_two(int m,int n)
+    {
+        if(m>n)
+            return m;
+        return n;
+    }
+    int max_three()
+    {
+        int l;
+        l=max_two(a,b);
+        return max_two(l,c);
+    }
+};
+int main()
+{
+    LargestNumber L;
+    L.setdata(20,5,33);
+    cout<<L.max_three()<<endl;
+    return 0;
+}
+5.
+#include<iostream>
+using namespace std;
+class ReverseNumber
+{
+    private:
+        int a;
+    public:
+        int reverse(int n)
+        {
+            int x,num=0;
+            while(n>0)
+            {
+                x=n%10;
+                num=num*10+x;
+                n=n/10;
+            }
+            return num;
+        }
+        void rev(int n)
+        {
+            a=reverse(n);
+        }
+        void show()
+        {
+            cout<<a;
+        }
+};
+int main()
+{
+   ReverseNumber r;
+   r.rev(1234);
+   r.show();
+   return 0;
+}
+6.
+#include<iostream>
+using namespace std;
+class square
+{
+    private:
+        int a;
+        int count;
+    public:
+        square()
+        {
+            count=0;
+        }
+        int seq(int n)
+        {
+            return n*n;
+        }
+        void setdata(int n)
+        {
+            a=seq(n);
+            count++;
+        }
+        void show()
+        {
+            cout<<a<<endl;;
+        }
+        int showcount()
+        {
+            return count;
+        }
+};
+int main()
+{
+   square s;
+   s.setdata(4);
+   s.show();
+   s.setdata(5);
+   s.show();
+   s.setdata(6);
+   s.show();
+   cout<<"Function is called "<<s.showcount()<<" Times";
+   return 0;
+}
+7.
+#include<iostream>
+using namespace std;
+class Greatest
+{
+   private:
+       int a,b,c;
+   public:
+     void setdata(int x,int y,int z)
+     {
+         a=x;
+         b=y;
+         c=z;
+     }
+     int max2(int p,int q)
+     {
+         if(p>q)
+            return p;
+         return q;
+     }
+     int max3()
+     {
+         int k;
+         k=max2(a,b);
+         return max2(k,c);
+     }
+};
+int main()
+{
+    Greatest g;
+    g.setdata(71,34,93);
+    cout<<"gratest is "<<g.max3()<<endl;
+    return 0;
+}
+8.
+#include<iostream>
+using namespace std;
+class Rectangle
+{
+   private:
+       int a,b;
+   public:
+     void setdata(int x,int y)
+     {
+         a=x;
+         b=y;
+     }
+     int area()
+     {
+         return a*b;
+     }
+};
+int main()
+{
+    Rectangle r;
+    r.setdata(3,4);
+    cout<<"area is "<<r.area()<<endl;
+    return 0;
+}
+9.
+#include<iostream>
+using namespace std;
+class Circle
+{
+   private:
+       int a;
+   public:
+     void setdata(int x)
+     {
+         a=x;
+     }
+     float area()
+     {
+         return 3.14*a*a;
+     }
+};
+int main()
+{
+    Circle c;
+    c.setdata(3);
+    cout<<"area is "<<c.area()<<endl;
+    return 0;
+}
+10.
+#include<iostream>
+using namespace std;
+class Area
+{
+   private:
+       int m,n;
+   public:
+     void set_square(int x)
+     {
+         m=x;
+     }
+     void set_rect(int x,int y)
+     {
+         m=x;
+         n=y;
+     }
+     void set_circle(int x)
+     {
+         m=x;
+     }
+     float area_circle()
+     {
+         return 3.14*m*m;
+     }
+     int area_rect()
+     {
+         return m*n;
+     }
+     int area_square()
+     {
+         return m*m;
+     }
+};
+int main()
+{
+    Area a;
+    a.set_circle(5);
+    cout<<"area(circle): "<<a.area_circle()<<endl;
+    a.set_rect(3,4);
+    cout<<"area(rectangle): "<<a.area_rect()<<endl;
+    a.set_square(4);
+    cout<<"area(square): "<<a.area_square()<<endl;
+    return 0;
+}
