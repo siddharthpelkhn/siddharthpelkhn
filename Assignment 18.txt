@@ -1,0 +1,274 @@
+1.
+#include<stdio.h>
+#include<stdlib.h>
+int length(char*);
+int main()
+{
+    char str[10];
+    printf("Enter string: ");
+    fgets(str,10,stdin);
+    printf("length of string is %d ",length(str));
+  
+    return 0;
+}
+int length(char* p)
+{
+    int i,count=0;
+    for(i=0;p[i]!='\0';i++)
+    {
+       count++;
+    }
+    return count;
+}
+2.
+#include<stdio.h>
+#include<stdlib.h>
+int length(char*);
+void reverse(char*);
+int main()
+{
+    char str[10];
+    printf("Enter string: ");
+    fgets(str,10,stdin);
+    printf("reverse of string is:\n");
+    reverse(str);
+    return 0;
+}
+int length(char* p)
+{
+    int i,count=0;
+    for(i=0;p[i]!='\0';i++)
+    {
+       count++;
+    }
+    return count;
+}
+void reverse(char* s)
+{
+    int l,i;
+    l=length(s);
+    for(i=l;i>=0;i--)
+    {
+       printf("%c",s[i]);
+    }
+}
+3.
+#include<stdio.h>
+#include<stdlib.h>
+void compare(char*,char*);
+int main()
+{
+    int l;
+    char str1[20],str2[20];
+    printf("Enter first string: ");
+    fgets(str1,20,stdin);
+    printf("Enter second string: ");
+    fgets(str2,20,stdin);
+    compare(str1,str2);
+    return 0;
+}
+void compare(char *s1,char* s2)
+{
+    int i,flag=0;
+    for ( i = 0; s1[i]!='\0'||s2[i]!='\0'; i++)
+    {
+        if(s1[i]!=s2[i])
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==1)
+    {
+        printf("not same!");
+    }
+    else
+    {
+        printf("same!");
+    }
+}
+4.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i;
+    char str[20];
+    printf("Enter a string: ");
+    fgets(str,20,stdin);
+    for ( i=0;str[i];i++)
+    {
+        if(str[i]>='a' && str[i]<='z')
+        str[i]-=32;
+    }
+    printf("%s",str);
+    return 0;
+}
+5.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i;
+    char str[20];
+    printf("Enter a string: ");
+    fgets(str,20,stdin);
+    for ( i=0;str[i];i++)
+    {
+        if(str[i]>='A' && str[i]<='Z')
+        str[i]+=32;
+    }
+    printf("%s",str);
+    return 0;
+}
+6.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,count1=0,count2=0;
+    char str[20];
+    printf("Enter a string: ");
+    fgets(str,20,stdin);
+    for (i=0;str[i];i++)
+    {
+        if(str[i]>='0'&&str[i]<='9'){
+            count1++;
+        }
+        else if(str[i]>='a'&&str[i]<='z'){
+            count2++;
+        }
+        else if(str[i]>='A'&&str[i]<='Z'){
+            count2++;
+        }
+    }
+    if(count1>=1&&count2>=1)
+    {
+        printf("Yes,It is a alphanumeric string.");
+    }
+    else
+    printf("No!,it's not a alphanumeric string.");
+    return 0;
+}
+7.
+#include<stdio.h>
+int length(char*);
+int main()
+{
+    int l,i;
+    char str[10];
+    printf("Enter a string: ");
+    gets(str);
+    l=length(str);
+    for ( i = 0; i < l/2; i++)
+    {
+        if(str[i]!=str[l-i-1]){
+            printf("It is not a palindrome");
+            break;
+        }
+    }
+    if(i==l/2)
+    {
+        printf("It's a palimdrome!");
+    }
+}
+int length(char* str)
+{
+    int i;
+    for ( i = 0; str[i]!='\0' ; i++);
+    return i;
+}
+8.
+#include<stdio.h>
+#include<stdlib.h>
+int length(char*);
+int main()
+{
+    int count=1;
+    char str[40];
+    printf("Enter string:\n");
+    gets(str);
+    for (int i = 0; i < length(str); i++)
+    {
+        if(str[i]==' ')
+        count++;
+    }
+    printf("no. of words = %d",count);
+    return 0;
+}
+int length(char* str)
+{
+    int i,count=0;
+    for ( i = 0; str[i] ; i++)
+    {
+        count++;
+    }
+    return count;
+}
+9.
+#include <stdio.h>
+#include <string.h>
+
+void reverse_string_wordwise(char *string) {
+    char *word, *delimiter = " ";
+    char *words[100];
+    int i = 0, num_words = 0;
+    // split the string into words
+    word = strtok(string, delimiter);
+    while (word != NULL) {
+        words[num_words++] = word;
+        word = strtok(NULL, delimiter);
+    }
+    // reverse the list of words
+    for (i = 0; i < num_words / 2; i++) {
+        char *temp = words[i];
+        words[i] = words[num_words - i - 1];
+        words[num_words - i - 1] = temp;
+    }
+    // join the words back into a string
+    char reversed_string[1000];
+    for (i = 0; i < num_words; i++) {
+        strcat(reversed_string, words[i]);
+        if (i < num_words - 1) {
+            strcat(reversed_string, " ");
+        }
+    }
+    // copy the reversed string back to the original string
+    strcpy(string, reversed_string);
+}
+
+int main() {
+    char string[1000] = "Mysirg Education Services";
+    reverse_string_wordwise(string);
+    printf("%s\n", string);  // output: "Services Education Mysirg"
+    return 0;
+}
+10.
+#include <stdio.h>
+#include <string.h>
+
+void find_repeated_char(char *string) {
+    int counts[256] = {0};
+    char arr[256] = {0};
+    int len = strlen(string);
+    int j=0;
+    for (int i = 0; i < len; i++) {
+        char c = string[i];
+        counts[c]++;
+
+        if(counts[c]==2)
+        arr[j++] = c;
+    }
+    printf("Repeating characters in a given string:\n");
+    for(int i=0;i<256;i++)
+    {
+        if(arr[i]!=0)
+        printf("%c ",arr[i]);
+    }
+}
+
+int main() {
+    char string[] = "hello world";
+    find_repeated_char(string);
+    return 0;
+}
