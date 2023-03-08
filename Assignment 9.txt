@@ -1,0 +1,416 @@
+1.
+#include<stdio.h>
+int main()
+{
+    int n,x;
+    printf("Enter the month number: ");
+    scanf("%d",&n);
+    switch (n)
+    {
+    case 1:
+        printf("january: 31 Days");
+        break;
+    case 2:
+        printf("Enter year: ");
+        scanf("%d",&x);
+        if(x%4==0)
+        printf("february:28 Days");
+        else
+        printf("february:29 Days");
+        break;
+    case 3:
+        printf("march:31 Days");
+        break;
+    case 4:
+        printf("april:30 Days");
+        break;   
+    case 5:
+        printf("may:31 Days");
+        break;
+    case 6:
+        printf("june:30 Days");
+        break;
+    case 7:
+        printf("july:31 Days");
+        break;
+    case 8:
+        printf("august:31 Days");
+        break;
+    case 9:
+        printf("september:30 Days");
+        break;
+    case 10:
+        printf("october:31 Days");
+        break;
+    case 11:
+        printf("november:30 Days");
+        break;
+    case 12:
+        printf("december:31 Days");
+        break;                           
+    default:
+        printf("Enter number between 1 to 12");
+        break;
+    }//end of switch
+    return 0;
+}
+2.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n,x,y;
+    while(1)
+    {
+      printf("1.Addition\n");
+      printf("2.Subtraction\n");
+      printf("3.Multiplication\n");
+      printf("4.Division\n");
+      printf("5.exit\n");
+      printf("Enter your choice: ");
+      scanf("%d",&n);
+      switch (n)
+      {
+       case 1:
+            printf("Enter two numbers: ");
+            scanf("%d %d",&x,&y);
+            printf("sum of %d and %d is %d\n",x,y,x+y);
+            break;   
+        case 2:
+            printf("Enter two numbers: ");
+            scanf("%d %d",&x,&y);
+            printf("subtraction %d from %d gives %d\n",y,x,x-y);
+            break;
+        case 3:
+            printf("Enter two numbers: ");
+            scanf("%d %d",&x,&y);
+            printf("multiplication of %d and %d is %d\n",x,y,x*y);
+            break;
+        case 4:
+            printf("Enter two numbers: ");
+            scanf("%d %d",&x,&y);
+            printf("division of %d by %d is %d\n",x,y,x/y);
+            break; 
+        case 5:
+            exit(0);    
+       default:
+        printf("\nInvalid choice");
+        break;
+      }//end of switch
+    } //end of while
+    return 0;
+}
+3.
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+  int n;
+  while (1)
+  {
+    printf("Enter number between 1 to 7\n");
+    printf("Enter 8 to exit\n");
+    printf("Enter day number of the week: ");
+    scanf("%d",&n);
+    switch (n)
+    {
+    case 1:
+      printf("Today is sunday\n");
+      printf("Have fun!\n");
+      break;
+    case 2:
+      printf("Today is monday\n");
+      printf("have a great day\n");
+      break;
+    case 3:
+      printf("Today is tuesday\n");
+      printf("I hope you are doing well\n");
+      break;
+    case 4:
+      printf("Today is wednesday\n");
+      printf("How are you?\n");
+      break;
+    case 5:
+      printf("Today is thursday\n");
+      printf("I hope you enjoyed your event yesterday\n");
+      break;
+    case 6:
+      printf("Today is friday\n");
+      printf("hey,what are you doing\n");
+      break;
+    case 7:
+      printf("Today is saturday\n");
+      printf("hello from this side\n");
+      break;
+    case 8:
+      exit(0);      
+    default:
+      break;
+    }//end of switch
+  }//end of while
+  return 0;
+}
+4.
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int ch;
+    int x,y,z;
+    while(1)
+    {
+        printf("1.isosceles triangle\n2.right angled triangle\n3.equilateral triangle\n4.exit\n");
+        printf("Enter your choice: ");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+          case 1:
+             printf("Enter three sides of triangle: ");
+             scanf("%d %d %d",&x,&y,&z);
+             if(x==y||y==z||x==z)
+                printf("isosceles\n");
+             else
+                printf("not isosceles\n");
+             break;
+          case 2:
+             printf("Enter three sides of triangle: ");
+             scanf("%d %d %d",&x,&y,&z);
+             if(x>y)
+             {
+                 if(x>z)
+                 {
+                    printf("x is largest side\n");
+                    if(pow(x,2)==pow(y,2)+pow(z,2))
+                     printf("right angled\n");
+                    else
+                        printf("not right angled\n");
+                 }
+                 else
+                 {
+                    printf("z is largest side\n");
+                    if(pow(z,2)==pow(x,2)+pow(y,2))
+                        printf("right angled\n");
+                    else
+                        printf("not right angled\n");
+                 }
+              }
+              else
+              {
+                 if(y>z)
+                 {
+                     printf("y is largest side\n");
+                     if(pow(y,2)==pow(x,2)+pow(z,2))
+                        printf("right angled\n");
+                     else
+                        printf("not right angled\n");
+                 }
+                 else
+                 {
+                     printf("z is largest side\n");
+                     if(pow(z,2)==pow(x,2)+pow(y,2))
+                        printf("right angled\n");
+                     else
+                        printf("not right angled\n");
+                 }
+             }
+             break;
+          case 3:
+              printf("Enter three sides of triangle: ");
+              scanf("%d %d %d",&x,&y,&z);
+              if(x==y&&y==z&&x==z)
+                printf("equilateral\n");
+              else
+                printf("not equilateral\n");
+              break;
+          case 4:
+            exit(0);
+          default:
+            printf("invalid choice!\n");
+        }//end of switch.
+    }//end of while.
+    return 0;
+}
+5.
+#include<stdio.h>
+int main()
+{
+    int ch;
+    printf("Enter your choice: ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+      case 1:
+        printf("good");
+        break;
+      case 2:
+        printf("better");
+        break;
+      case 3:
+        printf("best");
+        break;
+      default:
+        printf("invalid");
+        break;
+    }//end of switch
+    return 0;
+}
+6.
+#include<stdio.h>
+int main()
+{
+    int ch,year;
+    printf("Enter year: ");
+    scanf("%d",&year);
+    ch = (year%400==0 && year%100==0) || (year%4==0 && year%100!=0);
+    switch(ch)
+    {
+        case 1:
+            printf("%d is a leap year!",year);
+            break;
+        case 0:
+            printf("%d is not a leap year!",year);
+            break;
+        default:
+            printf("%d is not a leap year!");        
+    }
+    return 0;
+}
+7.
+#include<stdio.h>
+int main()
+{
+    int units;
+    float x,bill;
+    printf("Enter your Units: ");
+    scanf("%d",&units);
+    switch(units)
+    {
+        case 1 ... 50:
+            x = (units)*(0.50);
+            bill = x*0.2 + x;
+            printf("Bill = %0.2f",bill);
+            break;
+        case 51 ... 150:
+            x = (50*0.50) + (units-50)*(0.75);
+            bill = x*0.2 + x;
+            printf("Bill = %0.2f",bill);
+            break;
+        case 151 ... 250:
+            x = (50*0.50) + (100*0.75) + (units)*(1.20);
+            bill = x*0.2 + x;
+            printf("Bill = %0.2f",bill);
+            break;
+        default:
+           x = (50*0.50) + (100*0.75) + (100*1.20) + (units)*(0.50);
+            bill = x*0.2 + x;
+            printf("Bill = %0.2f",bill);
+            break;            
+    }
+    return 0;
+}
+8.
+#include<stdio.h>
+int main()
+{
+    int ch,x,y;
+    printf("press 0 to convert a positive number into a negative number\n");
+    printf("press 1 to convert a negative number into a positive number\n");
+    printf("Enter a choice: ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 0:
+           printf("Enter a number: ");
+           scanf("%d",&x);
+           x = x - 2*x;
+           printf("negative of given number is %d",x);
+           break;
+        case 1:
+           printf("Enter a number: ");
+           scanf("%d",&y);
+           y = y - 2*y;
+           printf("positive of given number is %d",y);
+           break;
+        default:
+           printf("select valid choice!");   
+    }
+}
+9.
+#include<stdio.h>
+int main()
+{
+    int n,ch;
+    printf("press 1 to convert even number to its upper nearest odd\n");
+    printf("press 2 to convert even number to its lower nearest odd\n");
+    printf("Enter your choice: ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 1:
+            printf("Enter a number: ");
+            scanf("%d",&n);
+            printf("nearest upper odd = %d",++n);
+            break;
+        case 2:
+            printf("Enter a number: ");
+            scanf("%d",&n);
+            printf("nearest lower odd = %d",--n);
+            break;
+        default:
+           printf("Enter valid choice!");
+           break;
+    }
+    return 0;
+}
+10.
+#include <stdio.h>
+#include <math.h> 
+
+int main()
+{
+    float a, b, c;
+    float root1, root2, imaginary;
+    float discriminant;
+
+    printf("Enter values of a, b, c of quadratic equation (aX^2 + bX + c): ");
+    scanf("%f%f%f", &a, &b, &c);
+
+    discriminant = (b * b) - (4 * a * c);
+
+    switch(discriminant > 0)
+    {
+        case 1:
+            /* If discriminant is positive */
+            root1 = (-b + sqrt(discriminant)) / (2 * a);
+            root2 = (-b - sqrt(discriminant)) / (2 * a);
+
+            printf("Two distinct and real roots exists: %.2f and %.2f", 
+                    root1, root2);
+            break;
+
+        case 0:
+            /* If discriminant is not positive */
+            switch(discriminant < 0)
+            {
+                case 1:
+                    /* If discriminant is negative */
+                    root1 = root2 = -b / (2 * a);
+                    imaginary = sqrt(-discriminant) / (2 * a);
+
+                    printf("Two distinct complex roots exists: %.2f + i%.2f and %.2f - i%.2f", 
+                            root1, imaginary, root2, imaginary);
+                    break;
+
+                case 0:
+                    /* If discriminant is zero */
+                    root1 = root2 = -b / (2 * a);
+
+                    printf("Two equal and real roots exists: %.2f and %.2f", root1, root2);
+
+                    break;
+            }
+    }
+
+    return 0;
+}
+
