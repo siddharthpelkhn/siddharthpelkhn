@@ -1,0 +1,319 @@
+1.
+#include<iostream>
+#include<map>
+#include<iterator>
+using namespace std;
+int main()
+{
+    map<int,int> m;
+    m.insert(pair<int,int>(1,10));
+    m.insert(pair<int,int>(2,20));
+    m.insert(pair<int,int>(3,30));
+    m.insert(pair<int,int>(4,40));
+    m.insert(pair<int,int>(5,50));
+    map<int,int>::iterator x;
+    for(x=m.begin();x!=m.end();x++)
+    {
+        cout<<x->first<<" "<<x->second<<endl;
+    }
+    return 0;
+}
+2.
+#include<iostream>
+#include<map>
+#include<iterator>
+using namespace std;
+int main()
+{
+    map<string,int> m;
+    m.insert(pair<string,int>("siddharth",19));
+    m.insert(pair<string,int>("prikshit",20));
+    m.insert(pair<string,int>("sanskar",19));
+    m.insert(pair<string,int>("gautam",19));
+    m.insert(pair<string,int>("jack",21));
+    map<string,int>::iterator x;
+    for(x=m.begin();x!=m.end();x++)
+    {
+        cout<<x->first<<"---"<<x->second<<endl;
+    }
+    return 0;
+}
+3.
+#include<iostream>
+#include<map>
+#include<iterator>
+using namespace std;
+int main()
+{
+    map<int,int> m;
+    m.insert(pair<int,int>(1,10));
+    m.insert(pair<int,int>(2,20));
+    m.insert(pair<int,int>(3,30));
+    m.insert(pair<int,int>(4,40));
+    m.insert(pair<int,int>(5,50));
+    map<int,int>::reverse_iterator x;
+    for(x=m.rbegin();x!=m.rend();x++)
+    {
+        cout<<x->first<<" "<<x->second<<endl;
+    }
+    return 0;
+}
+4.
+#include<iostream>
+#include<map>
+#include<iterator>
+using namespace std;
+int main()
+{
+    map<int,int> m;
+    m.insert(pair<int,int>(1,10));
+    m.insert(pair<int,int>(2,20));
+    m.insert(pair<int,int>(3,30));
+    m.insert(pair<int,int>(4,40));
+    m.insert(pair<int,int>(5,50));
+
+    map<int,int>::iterator x;
+    cout<<"--------map before--------"<<endl;
+    for(x=m.begin();x!=m.end();x++)
+    {
+        cout<<x->first<<" "<<x->second<<endl;
+    }
+    m[2]=70;
+    cout<<endl;
+    cout<<"--------map after--------"<<endl;
+    for(x=m.begin();x!=m.end();x++)
+    {
+        cout<<x->first<<" "<<x->second<<endl;
+    }
+    return 0;
+}
+5.
+#include<iostream>
+#include<map>
+#include<iterator>
+using namespace std;
+int main()
+{
+    map<int,int> m;
+    m.insert({1,10});
+    m.insert({3,30});
+    m.insert({5,50});
+    m.insert({7,70});
+    m.insert({9,90});
+    for(auto x : m)
+    {
+        cout<<x.first<<" "<<x.second<<endl;
+    }
+    return 0;
+}
+6.
+#include<iostream>
+#include<map>
+#include<iterator>
+using namespace std;
+int main()
+{
+    map<int,int> m;
+    m.insert(pair<int,int>(1,10));
+    m.insert(pair<int,int>(2,20));
+    m.insert(pair<int,int>(3,30));
+    m.insert(pair<int,int>(4,40));
+    m.insert(pair<int,int>(5,50));
+    if(m.empty())
+    {
+        cout<<"Map is empty"<<endl;
+    }else{
+        cout<<"Map is not empty!"<<endl;
+        cout<<"Size of map = "<<m.size()<<endl;
+    }
+    return 0;
+}
+7.
+#include<iostream>
+#include<map>
+#include<iterator>
+using namespace std;
+int main()
+{
+    map<int,int> m1;
+    map<int,int> m2;
+    m1.insert({3,30});
+    m1.insert({1,10});
+    m1.insert({5,50});
+    m1.insert({7,70});
+    m1.insert({9,90});
+    for(auto x : m1)
+    {
+        m2[x.second] = x.first;
+    }
+    map<int,int>::const_reverse_iterator x;
+    for(x=m2.rbegin();x!=m2.rend();x++)
+    {
+        cout<<x->first<<" "<<x->second<<endl;
+    }
+    return 0;
+}
+8.
+#include <bits/stdc++.h>
+using namespace std;
+
+string findNumber(string S, int N)
+{
+	string ans = "";
+
+	map<char, int> mp;
+	for (int i = 0; i < N; i++)
+    {
+		mp[S[i]]++;
+	}
+
+	while(mp['z'] && mp['e'] && mp['r'] && mp['o']){
+		mp['z']--;
+		mp['e']--;
+		mp['r']--;
+		mp['o']--;
+		ans += '0';
+	}
+	while(mp['o'] && mp['n'] && mp['e']){
+		mp['o']--;
+		mp['n']--;
+		mp['e']--;
+		ans += '1';
+	}
+	while(mp['t'] && mp['w'] && mp['o']){
+		mp['t']--;
+		mp['w']--;
+		mp['o']--;
+		ans += '2';
+	}
+	while(mp['t'] && mp['h'] && mp['r'] && mp['e'] && mp['e']){
+		mp['t']--;
+		mp['h']--;
+		mp['r']--;
+		mp['e']--;
+		mp['e']--;
+		ans += '3';
+	}
+	while(mp['f'] && mp['o'] && mp['u'] && mp['r']){
+		mp['f']--;
+		mp['o']--;
+		mp['u']--;
+		mp['r']--;
+		ans += '4';
+	}
+	while(mp['f'] && mp['i'] && mp['v'] && mp['e']){
+		mp['f']--;
+		mp['i']--;
+		mp['v']--;
+		mp['e']--;
+		ans += '5';
+	}
+	while(mp['s'] && mp['i'] && mp['x']){
+		mp['s']--;
+		mp['i']--;
+		mp['x']--;
+		ans += '6';
+	}
+	while(mp['s'] && mp['e'] && mp['v'] && mp['e'] && mp['n']){
+		mp['s']--;
+		mp['e']--;
+		mp['v']--;
+		mp['e']--;
+		mp['n']--;
+		ans += '7';
+	}
+	while(mp['e'] && mp['i'] && mp['g'] && mp['h'] && mp['t']){
+		mp['e']--;
+		mp['i']--;
+		mp['g']--;
+		mp['h']--;
+		mp['t']--;
+		ans += '8';
+	}
+	while(mp['n'] && mp['i'] && mp['n'] && mp['e']){
+		mp['n']--;
+		mp['i']--;
+		mp['n']--;
+		mp['e']--;
+		ans += '9';
+	}
+	return ans;
+}
+int main()
+{
+	string s = "zerootwneozero";
+	int N = s.size();
+	cout<<findNumber(s, N);
+	return 0;
+}
+9.
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+int main() {
+    map<string,vector<int>> map1 = {
+        {"key1", {0, 1}},
+        {"key2", {0, 1}}
+    };
+
+    map<string,vector<int>> map2 = {
+        {"key2", {1, 2}}
+    };
+
+    map<string,vector<int>> mergedMap = map1;
+
+    for (auto& elem: map2) {
+        string key = elem.first;
+        vector<int> values = elem.second;
+
+        if (mergedMap.find(key) == mergedMap.end()) {
+            mergedMap[key] = values;
+        } else {
+            mergedMap[key].insert(mergedMap[key].end(), values.begin(), values.end());
+        }
+    }
+
+    for (auto& elem: mergedMap) {
+        cout << elem.first << ": { ";
+        for (auto& value: elem.second) {
+            cout << value << " ";
+        }
+        cout << "}" << endl;
+    }
+
+    return 0;
+}
+10.
+#include <bits/stdc++.h>
+using namespace std;
+
+void differenceOfTwoPerfectCubes(int N)
+{
+	map<int, int> cubes;
+
+	for (int i=1;(i*i*i)-((i-1)*(i-1)*(i-1))<=N;i++)
+    {
+		cubes[i * i * i] = 1;
+	}
+
+	map<int, int>::iterator itr;
+
+	for(itr = cubes.begin(); itr != cubes.end(); itr++)
+    {
+		int firstNumber = itr->first;
+		int secondNumber = N + itr->first;
+		if(cubes.find(secondNumber)!=cubes.end())
+        {
+			cout << "Yes";
+			return;
+		}
+	}
+	cout<<"No";
+}
+int main()
+{
+	int N = 124;
+	differenceOfTwoPerfectCubes(N);
+	return 0;
+}
